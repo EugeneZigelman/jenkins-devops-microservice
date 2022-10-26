@@ -43,14 +43,12 @@ pipeline {
     }
     stage('Build Docker Image'){
       steps{
-        // "docker build -t eugenezigelman/currency-exchange-devops:$env.BUILD_TAG"
-        steps{
         script{
           dockerImage=docker.build("eugenezigelman/currency-exchange-devops:{$env.BUILD_TAG}")
         }
       }
     }
-    }
+    
     stage('Push Docker Image'){
       steps{
         script{
